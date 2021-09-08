@@ -14,6 +14,18 @@ class CleanupUserPreferences < ActiveRecord::Migration[6.1]
 
     execute <<~SQL.squish
       UPDATE user_preferences
+      SET settings =  settings - 'hide_mail' || '{"hide_mail": false}'
+      WHERE settings ->> 'hide_mail' = '0'
+    SQL
+
+    execute <<~SQL.squish
+      UPDATE user_preferences
+      SET settings =  settings - 'hide_mail' || '{"hide_mail": true}'
+      WHERE settings ->> 'hide_mail' = '1'
+    SQL
+
+    execute <<~SQL.squish
+      UPDATE user_preferences
       SET settings = settings - 'no_self_notified'
     SQL
   end

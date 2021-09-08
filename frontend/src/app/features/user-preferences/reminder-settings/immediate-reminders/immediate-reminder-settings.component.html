@@ -1,0 +1,17 @@
+<ng-container
+  *ngIf="(immediateReminders$ | async) as immediateReminders">
+  <!-- TODO: use checkbox component for the enabled input -->
+  <div
+    class="op-reminder-settings-daily-time--enable">
+    <input
+      [ngModel]="immediateReminders.mentioned"
+      (ngModelChange)="toggleEnabled('mentioned', $event)"
+      type="checkbox"
+      id="op-reminder-settings-immediate-mentioned"
+    >
+    <label
+      for="op-reminder-settings-immediate-mentioned"
+      [textContent]="text.mentioned">
+    </label>
+  </div>
+</ng-container>
