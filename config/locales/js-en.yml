@@ -575,6 +575,8 @@ en:
         unread: 'Unread'
         all: 'All'
       center:
+        and_other_users_singular: 'and 1 other'
+        and_other_users_plural: 'and %{count} others'
         mark_all_read: 'Mark all as read'
         mark_as_read: 'Mark as read'
         text_update_date: "%{date} by"
